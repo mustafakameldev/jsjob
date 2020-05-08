@@ -1,19 +1,34 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component} from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Provider } from 'react-redux';
+import store from './store/index';
+import AuthScreen  from './screens/AuthScreen';
+import WelcomeScreen from './screens/WelcomeScreen';
+import MainScreen from './screens/mainScreen';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+
+
+const Tab = createBottomTabNavigator();
+
+class App extends Component {
+  
+  render() {
+    
+    return ( 
+    <Provider store={store}>
+        <NavigationContainer>
+          <Tab.Navigator>
+            <Tab.Screen name="welcome" component={WelcomeScreen} />
+            <Tab.Screen name="auth" component={AuthScreen} />
+            <Tab.Screen name="main" component={MainScreen}   />
+          </Tab.Navigator>
+        </NavigationContainer>
+        </Provider>
+    
+     );
+  }
+  
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

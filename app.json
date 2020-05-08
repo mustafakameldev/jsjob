@@ -1,5 +1,6 @@
 {
   "expo": {
+    "sdkVersion": "37.0.0",
     "name": "jobs",
     "slug": "jobs",
     "platforms": [
@@ -23,6 +24,11 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.goal.app",
+      "versionCode": 1,
+      "icon" :"./assets/icon.png"
     }
   }
 }
